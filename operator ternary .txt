@@ -1,0 +1,245 @@
+contoh operator ternary :
+
+1. let score = 40;
+let result =
+    score >= 95 ? "A+" :
+    score >= 85 ? "A" :
+    score >= 75 ? "B" :
+    score >= 60 ? "C" :
+    score >= 40 ? "D" : "E";
+console.log(result);
+//output D
+
+2. contoh 2
+let age = 30;
+let message = (age >= 18) 
+    ? (age >= 21) 
+        ? "Anda boleh minum alkohol" 
+        : "Anda sudah cukup umur" 
+    : "Anda belum cukup umur";
+console.log(message); 
+// Output: "Anda boleh minum alkohol"
+ 
+3. contoh operator ternary menggunakan looping FOR
+let score = [20,40,60,80,100];
+for (let i = 0; i < score.length; i++) {
+    let result =
+    score[i] >= 95 ? "A+" :
+    score[i] >= 85 ? "A" :
+    score[i] >= 75 ? "B" :
+    score[i] >= 60 ? "C" :
+    score[i] >= 40 ? "D" : "E";
+
+    console.log(`score ${i + 1}: ${score[i]} (${result})`);
+}
+//score 1: 20 (E)
+score 2: 40 (D)
+score 3: 60 (C)
+score 4: 80 (B)
+score 5: 100 (A+)
+
+4. contoh menggunakan WHILE LOOP
+let i = 1;
+let total = 0;
+while (i <= 10) {
+  total += i % 2 === 0 ? i : 0;
+  i++;
+}
+console.log(`Total of even numbers from 1 to 10: ${total}`);
+//Total of even numbers from 1 to 10: 30
+
+5. let students = [
+    {name: "John", grade: 80},
+    {name: "Jane", grade: 90},
+    {name: "Jim", grade: 70},
+    {name: "Judy", grade: 95}
+  ];
+  let i = 0;
+  let pass = 0;
+  while (i < students.length) {
+    pass += students[i].grade > 70 ? 1 : 0;
+    i++;
+  }
+  console.log(`jumlah siswa yang lulus adalah ${pass} orang`);
+//jumlah siswa yang lulus adalah 3 orang
+  
+6. let items = [
+    {name: 'sepatu', price: 100000, stock: 10},
+    {name: 'sendal', price: 50000, stock: 5},
+    {name: 'tas', price: 200000, stock: 0}
+  ];
+  
+  items.forEach(item => {
+    console.log(item.stock === 0 ? `${item.name} stok tidak tersedia` : `${item.name} dengan harga ${item.price} memiliki ${item.stock} stok`);
+  });
+//sepatu dengan harga 100000 memiliki 10 stok
+sendal dengan harga 50000 memiliki 5 stok
+tas stok tidak tersedia
+
+7. contoh menggunakan FUNCTION
+function calculateDiscount(harga, diskon) {
+    return diskon >= 0.5 ? harga * 0.5 : harga * (1 - diskon);
+  }
+  let hargaAsli = 100000;
+  let diskon = 10;
+  let hargDiskon = calculateDiscount(hargaAsli, diskon);
+  console.log(`Harga Diskon adalah Rp: ${hargDiskon}`);
+//Harga Diskon adalah Rp: 10000
+
+8. function getGrade(score) {
+    return (score >= 90) ? "A" : 
+    (score >= 80) ? "B" : 
+    (score >= 70) ? "C" : 
+    (score >= 60) ? "D" : "F";
+  }
+  
+  console.log(getGrade(92));
+  console.log(getGrade(76));
+  console.log(getGrade(59));
+//A,C,F
+
+9. function calculateDiscount(price, discount) {
+    return (discount > 0 && discount < 100) ? price * (discount / 100) : (discount >= 100) ? 0 : price;
+  }
+  
+  console.log(calculateDiscount(100, 20));
+  console.log(calculateDiscount(100, 120));
+  console.log(calculateDiscount(100, -10));
+//20,0,100
+
+10.  function isPositive(number) {
+    return number >= 2 ? true : false;
+  }
+  
+  for (let i = 0; i <= 5; i++) {
+    console.log(`Angka ${i} adalah angka positif: ${isPositive(i)}`);
+  }
+//Angka 0 adalah angka positif: false
+Angka 1 adalah angka positif: false
+Angka 2 adalah angka positif: true
+Angka 3 adalah angka positif: true
+Angka 4 adalah angka positif: true
+Angka 5 adalah angka positif: true
+
+
+
+//contoh soal studi kasus
+1. Buat sebuah function getDriverStatus(age) yang menerima sebuah argument age dan mengembalikan string berikut:
+
+- Jika age >= 16, kembalikan "You are old enough to legally drive."
+- Jika age < 16, kembalikan "You are not old enough to legally drive."
+
+function getDriverStatus(age) {
+  return age >= 16 ? "You are old enough to legally drive." : "You are not old enough to legally drive.";
+}
+
+console.log(getDriverStatus(15)); // outputs: You are not old enough to legally drive.
+console.log(getDriverStatus(16)); // outputs: You are old enough to legally drive.
+console.log(getDriverStatus(20)); // outputs: You are old enough to legally drive.
+
+2. Buat sebuah function getDiscount(price, hasMembership) yang menerima dua argument: price dan hasMembership. Function ini akan mengembalikan harga setelah diskon berdasarkan kondisi berikut:
+
+- Jika hasMembership bernilai true, maka diskon sebesar 10% dari harga price akan diberikan.
+- Jika hasMembership bernilai false, maka diskon sebesar 5% dari harga price akan diberikan.
+
+function getDiscount(price, hasMembership) {
+  return hasMembership ? price * 0.1 : price * 0.05
+}
+console.log(getDiscount(10000, true));
+console.log(getDiscount(50000,true));
+
+3. Buat sebuah function checkSign(num) yang menerima sebuah argument num (angka) dan mengembalikan string berikut:
+
+Jika num adalah angka positif, kembalikan "Positive".
+Jika num adalah angka negatif, kembalikan "Negative".
+Jika num bernilai 0, kembalikan "Zero".
+
+function checkSign(num) {
+  return num > 0 ? "Positive" : num < 0 ? "Negative" : "Zero";
+}
+
+console.log(checkSign(5)); // outputs: Positive
+console.log(checkSign(-5)); // outputs: Negative
+console.log(checkSign(0)); // outputs: Zero
+
+//menggunakan cara lain 
+function checkSign(num) {
+  return num % 2 === 0 ? "BILANGAN BULAT" : 
+  num % 2 === 1 ? "BILANGAN PRIMA" : "BILANGAN NEGATIF";
+}
+console.log(checkSign(30));
+console.log(checkSign(2));
+console.log(checkSign(3));
+console.log(checkSign(-1));
+
+4. Buat sebuah function getGrade(score) yang menerima sebuah argument score (skor) dan mengembalikan string berikut:
+
+Jika score >= 90, kembalikan "A".
+Jika score >= 80, kembalikan "B".
+Jika score >= 70, kembalikan "C".
+Jika score >= 60, kembalikan "D".
+Jika score < 60, kembalikan "F".
+
+function checkGrade(skor) {
+  return skor >= 90 ? "A":
+  (skor >= 90) ? "B":
+  (skor >= 80) ? "C":
+  (skor >= 70) ? "D":
+  (skor >= 60) ? "E": "F";
+}
+console.log(getGrade(40));
+console.log(getGrade(90));
+
+atau dengan cara lain 
+function checkGrade(score) {
+  return score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F";
+}
+
+console.log(checkGrade(95)); // outputs: A
+console.log(checkGrade(82)); // outputs: B
+console.log(checkGrade(71)); // outputs: C
+console.log(checkGrade(61)); // outputs: D
+console.log(checkGrade(59)); // outputs: F
+
+
+5. Buat sebuah function checkEven(num) yang menerima sebuah argument num (angka) dan mengembalikan string berikut:
+
+Jika num adalah angka genap, kembalikan "GENAP".
+Jika num adalah angka ganjil, kembalikan "GANJIL".
+
+
+function checkEven(num) {
+  return num % 2 === 0 ? "GENAP" : "GANJIL";
+}
+console.log(checkEven(20));
+console.log(checkEven(13));
+
+6. Buat sebuah function getLargest(arr) yang menerima sebuah array of numbers arr dan mengembalikan angka terbesar dalam array tersebut. Gunakan operator ternary dan perulangan for untuk menyelesaikan tugas ini.
+
+function getLargest(arr) {
+  let largest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    largest = arr[i] > largest ? arr[i] : largest;
+  }
+  return largest;
+}
+
+console.log(getLargest([1, 2, 3, 4, 5])); // outputs: 5
+console.log(getLargest([5, 4, 3, 2, 1])); // outputs: 5
+
+7. Buat sebuah function getSum(arr) yang menerima sebuah array of numbers arr dan mengembalikan jumlah dari semua angka dalam array tersebut. Gunakan operator ternary dan perulangan for untuk menyelesaikan tugas ini.
+
+
+function getSum(array) {
+  let sum = 0;
+  for(i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum
+  }
+  console.log(getSum([10,10,20,40]));
+  console.log(getSum([11,12,13,17]));
+
+
+
+

@@ -1,0 +1,107 @@
+1. Reduce 
+reduce() merupakan method array di JavaScript yang mengeksekusi fungsi callback pada setiap elemen array, nilai hasil kalkulasi pada elemen sebelumnya digunakan untuk melakukan kalkulasi pada elemen berikutnya.Setelah menjalankan fungsi callback untuk semua elemen array, method ini menghasilkan nilai tunggal.
+contohnya :
+
+- menggunakan function 
+ const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);
+console.log(sum); // Output: 10
+
+
+- menggunakan arrow function
+const numbers = [175, 50, 25];
+const pengurangan = numbers.reduce((arr, curr) => {
+  return arr + curr}, 0);
+  console.log(pengurangan);
+
+
+- menggunakan function yang didalam nya ada objek 
+const orders = [
+  { product: 'Book', price: 30, quantity: 2 },
+  { product: 'Pen', price: 10, quantity: 4 },
+  { product: 'Notebook', price: 20, quantity: 3 }
+];
+
+const totalAmount = orders.reduce(function(acc, curr) {
+  return acc + (curr.price * curr.quantity);
+}, 0);
+
+console.log(totalAmount); // Output: 160
+
+2. Map
+map() adalah metode pada objek Array di JavaScript yang digunakan untuk memproses setiap elemen dalam Array dan mengembalikan Array baru dengan hasil proses tersebut. Metode ini menerima sebuah callback function yang menerima tiga parameter: elemen saat ini, indeks elemen, dan Array yang sedang diproses
+
+- let angka = [1, 2, 3, 4, 5];
+let kaliDua = angka.map(function(angka) {
+  return angka * 2;
+});
+console.log(kaliDua); // Output: [2, 4, 6, 8, 10]
+
+
+- let dataMahasiswa = [
+  { nama: 'John Doe', usia: 25, jurusan: 'Teknik Informatika' },
+  { nama: 'Jane Doe', usia: 23, jurusan: 'Sastra Inggris' },
+  { nama: 'Jim Doe', usia: 27, jurusan: 'Ekonomi' }
+];
+let namaMahasiswa = dataMahasiswa.map(function(mahasiswa) {
+  return mahasiswa.nama;
+});
+console.log(namaMahasiswa); 
+// Output: [ 'John Doe', 'Jane Doe', 'Jim Doe' ]
+
+
+- contoh map objek didalam array
+let dataBuku = [
+    { judul: 'Harry Potter and the Philosopher\'s Stone', penulis: 'J.K. Rowling' },
+    { judul: 'The Lord of the Rings', penulis: 'J.R.R. Tolkien' },
+    { judul: 'The Hitchhiker\'s Guide to the Galaxy', penulis: 'Douglas Adams' }
+  ];
+
+  let daftarBuku = dataBuku.map((buku) => {
+    return buku.judul + ` ditulis oleh` + " " + buku.penulis;
+  });
+  console.log(daftarBuku);
+//output
+[
+"Harry Potter and the Philosopher's Stone ditulis oleh J.K. Rowling",
+  'The Lord of the Rings ditulis oleh J.R.R. Tolkien',
+  "The Hitchhiker's Guide to the Galaxy ditulis oleh Douglas Adams"
+]
+
+
+- contoh program yang menggunakan map & reduce 
+ let mahasiswa = [
+    {nama: 'Andi', umur: 22, nilai: 90},
+    {nama: 'Budi', umur: 23, nilai: 80},
+    {nama: 'Cindy', umur: 21, nilai: 85},
+    {nama: 'David', umur: 24, nilai: 95},
+    {nama: 'Ella', umur: 22, nilai: 92}
+  ];
+  
+  let nilaiTertinggi = mahasiswa.map((mhs) => {
+    return mhs.nilai;
+  }).reduce((prev, current) => {
+    return (prev > current) ? prev : current;
+  });
+  
+  console.log(nilaiTertinggi); // Output: 95
+
+- Contoh menggunakan map & forEach
+
+let angka = [1, 2, 3, 4, 5];
+// Menggunakan map()
+let kaliDua = angka.map(function(x) {
+  return x * 2;
+});
+console.log(kaliDua); // Output: [2, 4, 6, 8, 10]
+
+// Menggunakan forEach()
+let kaliTiga = [];
+
+angka.forEach(function(x) {
+  kaliTiga.push(x * 3);
+});
+
+console.log(kaliTiga); // Output: [3, 6, 9, 12, 15]

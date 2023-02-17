@@ -1,0 +1,57 @@
+1. Slice
+Slice adalah method pada JavaScript yang digunakan untuk mengambil sebagian dari array atau string dan mengembalikan sebagai array baru tanpa memodifikasi array atau string asli. Method slice memiliki dua parameter opsional, yaitu start dan end, yang menentukan batas awal dan akhir dari bagian yang diambil. Jika tidak ada parameter yang diberikan, slice akan mengembalikan seluruh bagian dari array atau string.
+
+* Contohnya: 
+- const numbers = [1, 2, 3, 4, 5];
+
+// Menggunakan hanya satu parameter, start
+const slicedNumbers = numbers.slice(2); 
+console.log(slicedNumbers); // Output: [3, 4, 5]
+
+// Menggunakan kedua parameter, start dan end
+const slicedNumbers2 = numbers.slice(1, 3);
+console.log(slicedNumbers2); // Output: [2, 3]
+
+- const fruits = ['apple', 'banana', 'cherry', 'dates', 'elderberry'];
+
+// Menggunakan start negatif
+const slicedFruits = fruits.slice(-3);
+console.log(slicedFruits); // Output: ['cherry', 'dates', 'elderberry']
+
+// Menggunakan end negatif
+const slicedFruits2 = fruits.slice(1, -2);
+console.log(slicedFruits2); // Output: ['banana']
+
+// Menggunakan start dan end yang melebihi batas array
+const slicedFruits3 = fruits.slice(4, 10);
+console.log(slicedFruits3); // Output: ['elderberry']
+
+
+2. Push
+Method push() pada JavaScript adalah sebuah method yang digunakan untuk menambah elemen baru ke akhir suatu array. Method ini mengembalikan panjang baru dari array setelah elemen baru ditambahkan.Berikut adalah contoh penggunaan method push pada JavaScript:
+
+- const numbers = [1, 2, 3];
+numbers.push(4);
+console.log(numbers); // Output: [1, 2, 3, 4]
+
+- let animals = ['dog', 'cat'];
+// Menambahkan satu elemen baru ke akhir array
+animals.push('rabbit');
+console.log(animals);
+// Output: Array [ "dog", "cat", "rabbit" ]
+
+// Menambahkan lebih dari satu elemen baru ke akhir array
+let newAnimals = ['bird', 'fish'];
+animals.push(...newAnimals);
+console.log(animals);
+// Output: Array [ "dog", "cat", "rabbit", "bird", "fish" ]
+
+// Menambahkan elemen baru ke awal array
+animals.unshift('horse');
+console.log(animals);
+// Output: Array [ "horse", "dog", "cat", "rabbit", "bird", "fish" ]
+
+3. Join
+join() adalah method array yang digunakan untuk menggabungkan semua elemen array menjadi sebuah string, dengan pemisah tertentu. Method ini mengembalikan string hasil penggabungan elemen array.
+
+
